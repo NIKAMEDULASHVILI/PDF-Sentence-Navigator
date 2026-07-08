@@ -17,7 +17,7 @@ async function main() {
   const pdfDoc = await loadPdfDocument(stored.data);
   const pageCount = await getPageCount(pdfDoc);
 
-  const allSentences = []; // {pageNumber, text, rects, el}
+  const allSentences = [];
 
   for (let pageNumber = 1; pageNumber <= pageCount; pageNumber++) {
     const { canvas, items } = await renderPage(pdfDoc, pageNumber);
@@ -62,7 +62,14 @@ async function main() {
     }
 
     sentence.els.forEach((el) => el.classList.add("active"));
-    sentence.wrapper.scrollIntoView({ block: "center", behavior: "smooth" });
+
+    const targetEl = sentence.els[0];
+    if (targetEl) {
+      targetEl.scrollIntoView({ block: "center", behavior: "smooth" });
+    } else {
+      sentence.wrapper.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+
     counterEl.textContent = `${index + 1} / ${allSentences.length}`;
   };
   navigator.attach();
@@ -73,3 +80,4 @@ main().catch((err) => {
   console.error(err);
   fileNameEl.textContent = "შეცდომა PDF-ის ჩატვირთვისას";
 });
+
