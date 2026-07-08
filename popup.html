@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <title>PDF Sentence Navigator</title>
+  <style>
+    body {
+      width: 260px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #1b1f24;
+      color: #e7e9ec;
+    }
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .logo {
+      width: 72px;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    }
+    h1 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      letter-spacing: 0.2px;
+      text-align: center;
+    }
+    label.file-btn {
+      display: block;
+      text-align: center;
+      background: #3567d6;
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    label.file-btn:hover { background: #2f5cc2; }
+    input[type="file"] { display: none; }
+    p.hint {
+      font-size: 11px;
+      color: #9aa2ad;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    p.status {
+      font-size: 12px;
+      margin-top: 10px;
+      color: #6fcf97;
+      min-height: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <img class="logo" src="icons/pdf-logo.svg" alt="PDF logo" />
+  </div>
+  <h1>PDF Sentence Navigator</h1>
+  <label class="file-btn" for="pdfInput">PDF ფაილის არჩევა</label>
+  <input type="file" id="pdfInput" accept="application/pdf" />
+  <p class="status" id="status"></p>
+  <p class="hint">
+    ფაილს ავირჩევთ ლოკალურად — არაფერი იგზავნება გარე სერვერზე.
+    გახსნის შემდეგ გამოიყენეთ <b>TAB</b> / <b>SHIFT+TAB</b> წინადადებებს შორის გადასაადგილებლად.
+  </p>
+  <script src="popup.js"></script>
+</body>
+</html>

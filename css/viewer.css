@@ -1,0 +1,81 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #2b2f36;
+  color: #e7e9ec;
+}
+
+#toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 16px;
+  background: #1b1f24;
+  border-bottom: 1px solid #33383f;
+  font-size: 13px;
+  z-index: 10;
+}
+
+#fileName {
+  font-weight: 600;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#sentenceCounter {
+  color: #9aa2ad;
+  font-variant-numeric: tabular-nums;
+}
+
+#hint {
+  color: #6b93e0;
+  font-size: 12px;
+}
+
+#pageContainer {
+  padding: 64px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.page-wrapper {
+  position: relative;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  background: white;
+}
+
+.page-wrapper canvas {
+  display: block;
+}
+
+.text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sentence-rect {
+  position: absolute;
+  background: rgba(255, 210, 0, 0);
+  border-radius: 3px;
+  transition: background 0.12s ease;
+  pointer-events: none;
+}
+
+.sentence-rect.active {
+  background: rgba(255, 196, 0, 0.45);
+  outline: 2px solid rgba(255, 170, 0, 0.9);
+}
